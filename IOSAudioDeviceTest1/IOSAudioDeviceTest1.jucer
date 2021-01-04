@@ -2,7 +2,8 @@
 
 <JUCERPROJECT id="WzYtgg" name="IOSAudioDeviceTest1" projectType="audioplug"
               useAppConfig="0" addUsingNamespaceToJuceHeader="0" displaySplashScreen="1"
-              jucerFormatVersion="1" pluginFormats="buildAUv3,buildStandalone">
+              jucerFormatVersion="1" pluginFormats="buildAUv3,buildStandalone"
+              pluginChannelConfigs="{2,2}">
   <MAINGROUP id="GTJ3tv" name="IOSAudioDeviceTest1">
     <GROUP id="{A4A3835D-2CE2-AE0A-9109-9A04F04B087C}" name="Source">
       <FILE id="FkOHY9" name="MainComponent.cpp" compile="1" resource="0"
@@ -19,7 +20,7 @@
   </MAINGROUP>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1" JUCE_VST3_CAN_REPLACE_VST2="0"/>
   <EXPORTFORMATS>
-    <XCODE_IPHONE targetFolder="Builds/iOS">
+    <XCODE_IPHONE targetFolder="Builds/iOS" microphonePermissionNeeded="1">
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" targetName="IOSAudioDeviceTest1"/>
         <CONFIGURATION isDebug="0" name="Release" targetName="IOSAudioDeviceTest1"/>
