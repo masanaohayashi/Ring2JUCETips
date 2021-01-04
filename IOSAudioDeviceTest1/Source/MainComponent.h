@@ -34,7 +34,8 @@
                                                                     //[/Comments]
 */
 class MainComponent  : public juce::Component,
-                       public juce::ComboBox::Listener
+                       public juce::ComboBox::Listener,
+                       public juce::Button::Listener
 {
 public:
     //==============================================================================
@@ -48,6 +49,7 @@ public:
     void paint (juce::Graphics& g) override;
     void resized() override;
     void comboBoxChanged (juce::ComboBox* comboBoxThatHasChanged) override;
+    void buttonClicked (juce::Button* buttonThatWasClicked) override;
 
 
 
@@ -63,6 +65,7 @@ private:
     std::unique_ptr<juce::ComboBox> comboBufferSize;
     std::unique_ptr<juce::Label> labelBitDepth;
     std::unique_ptr<juce::Label> labelError;
+    std::unique_ptr<juce::TextButton> buttonBlueToothMidi;
 
 
     //==============================================================================

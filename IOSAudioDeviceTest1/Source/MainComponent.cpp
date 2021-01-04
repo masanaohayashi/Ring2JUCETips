@@ -108,6 +108,13 @@ MainComponent::MainComponent ()
 
     labelError->setBounds (24, 88, 488, 24);
 
+    buttonBlueToothMidi.reset (new juce::TextButton (juce::String()));
+    addAndMakeVisible (buttonBlueToothMidi.get());
+    buttonBlueToothMidi->setButtonText (TRANS("Bluetooth MIDI"));
+    buttonBlueToothMidi->addListener (this);
+
+    buttonBlueToothMidi->setBounds (24, 120, 150, 24);
+
 
     //[UserPreSize]
     juce::StandalonePluginHolder* holder = juce::StandalonePluginHolder::getInstance();
@@ -160,6 +167,7 @@ MainComponent::~MainComponent()
     comboBufferSize = nullptr;
     labelBitDepth = nullptr;
     labelError = nullptr;
+    buttonBlueToothMidi = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -243,6 +251,22 @@ void MainComponent::comboBoxChanged (juce::ComboBox* comboBoxThatHasChanged)
     //[/UsercomboBoxChanged_Post]
 }
 
+void MainComponent::buttonClicked (juce::Button* buttonThatWasClicked)
+{
+    //[UserbuttonClicked_Pre]
+    //[/UserbuttonClicked_Pre]
+
+    if (buttonThatWasClicked == buttonBlueToothMidi.get())
+    {
+        //[UserButtonCode_buttonBlueToothMidi] -- add your button handler code here..
+        juce::BluetoothMidiDevicePairingDialogue::open();
+        //[/UserButtonCode_buttonBlueToothMidi]
+    }
+
+    //[UserbuttonClicked_Post]
+    //[/UserbuttonClicked_Post]
+}
+
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
@@ -294,6 +318,9 @@ BEGIN_JUCER_METADATA
          edBkgCol="0" labelText="(error message)" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+  <TEXTBUTTON name="" id="e5b1ba8d2aff09d1" memberName="buttonBlueToothMidi"
+              virtualName="" explicitFocusOrder="0" pos="24 120 150 24" buttonText="Bluetooth MIDI"
+              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
